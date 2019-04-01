@@ -1,0 +1,28 @@
+"""Write a function that takes an ordered list of numbers
+   (a list where the elements are in order from smallest to
+    largest) and another number. The function decides whether
+    or not the given number is inside the list and returns
+    (then prints) an appropriate boolean."""
+
+def list1(a_list,user):
+    return True if [True for i in a_list if i==user] else False
+
+def list2(a_list,user):
+    if len(a_list)==1:
+        return True
+    elif user < a_list[(len(a_list)//2)]:
+        return list2(a_list[:len(a_list)//2],user)
+    else:
+        return list2(a_list[len(a_list)//2:],user)
+                        
+
+
+if __name__=="__main__":
+    a_list=[1,2,4,8,16,32,35,40,45,67,70,75]
+    user=int(input("Enter a numher : "))
+
+    print("%i is in %s %s"%(user,a_list,list1(a_list,user)))
+
+    print("%i is in %s %s"%(user,a_list,list2(a_list,user)))
+    
+    
